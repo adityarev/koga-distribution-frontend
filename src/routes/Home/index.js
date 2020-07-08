@@ -21,8 +21,8 @@ const Home = (props) => {
   return (
     <Container fluid>
       <Row className="justify-content-md-center">
-        {cards.map(card => (
-          <Card style={{ width: '18rem', margin: '20px 10px', marginBottom: '0px' }}>
+        {cards.map((card, i) => (
+          <Card key={i} style={{ width: '18rem', margin: '20px 10px', marginBottom: '0px' }}>
             <Card.Img variant="top" src={card.src}/>
             <Card.Body>
               <Card.Title>{card.title}</Card.Title>

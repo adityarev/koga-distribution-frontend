@@ -74,8 +74,8 @@ class Item extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.items.map(item => (
-                  <tr>
+                {this.state.items.map((item, i) => (
+                  <tr key={i}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.quantity}</td>

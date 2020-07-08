@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
 
+import InputNumber from '../../components/InputNumber';
+
 class DetailModal extends React.Component {
   constructor(props) {
     super(props);
@@ -39,7 +41,7 @@ class DetailModal extends React.Component {
                 Jumlah
               </Form.Label>
               <Col sm={9}>
-                <Form.Control type="text" placeholder="Jumlah Barang" defaultValue={this.state.quantity}/>
+                <InputNumber defaultValue={this.state.quantity} onChange={(e) => { console.log('changed') }}/>
               </Col>
             </Form.Group>
           </Form>
