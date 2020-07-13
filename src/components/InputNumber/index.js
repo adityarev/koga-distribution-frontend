@@ -11,14 +11,29 @@ class InputNumber extends React.Component {
     };
   }
 
+  handleValueChange = (newValue) => {
+    this.setState({
+      value: Math.max(0, newValue)
+    }, () => {
+      if (typeof(this.props.onChange) !== 'undefined') {
+        this.props.onChange(this.state.value);
+      }
+    });
+  }
+
   handleDecrease = (event) => {
     event.preventDefault();
-    this.setState({ value: this.state.value - 1 });
+    this.handleValueChange(this.state.value - 1);
   }
 
   handleIncrease = (event) => {
     event.preventDefault();
-    this.setState({ value: this.state.value + 1 });
+    this.handleValueChange(this.state.value + 1);
+  }
+
+  handleOnChange = (event) => {
+    const { value } = event.target;
+    this.handleValueChange(Number(value === "" ? "0" : value));
   }
 
   render() {
@@ -27,7 +42,7 @@ class InputNumber extends React.Component {
         <button onClick={this.handleDecrease} className="minus"></button>
         <input
           type="number" className="quantity" name="quantity"
-          value={this.state.value} onChange={this.props.onChange}
+          value={this.state.value} onChange={this.handleOnChange}
         />
         <button onClick={this.handleIncrease} className="plus"></button>
       </div>
@@ -35,7 +50,7 @@ class InputNumber extends React.Component {
   }
 }
 
-InputNumber.defaultProps = {
+InputNumber.propTypes = {
   defaultValue: PropTypes.number,
   onChange: PropTypes.func
 }
