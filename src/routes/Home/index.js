@@ -38,8 +38,6 @@ const Home = (props) => {
   );
 }
 
-Home.defaultProps = {
-
-}
+Home.propTypes = {}
 
 export default Home;

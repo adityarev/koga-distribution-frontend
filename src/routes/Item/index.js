@@ -119,6 +119,6 @@ class Item extends React.Component {
   }
 }
 
-Item.deafultProps = {}
+Item.propTypes = {}
 
 export default Item;

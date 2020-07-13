@@ -55,7 +55,7 @@ class AddModal extends React.Component {
   }
 }
 
-AddModal.defaultProps = {
+AddModal.propTypes = {
   item: PropTypes.object.isRequired,
   handleAddModalClose: PropTypes.func.isRequired,
 }

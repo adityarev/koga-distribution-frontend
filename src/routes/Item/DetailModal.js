@@ -54,7 +54,7 @@ class DetailModal extends React.Component {
   }
 }
 
-DetailModal.defaultProps = {
+DetailModal.propTypes = {
   item: PropTypes.object.isRequired,
   handleDetailModalClose: PropTypes.func.isRequired,
 }

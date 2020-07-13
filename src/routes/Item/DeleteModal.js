@@ -40,7 +40,7 @@ class DeleteModal extends React.Component {
   }
 }
 
-DeleteModal.defaultProps = {
+DeleteModal.propTypes = {
   item: PropTypes.object.isRequired,
   handleDeleteModalClose: PropTypes.func.isRequired,
 }
