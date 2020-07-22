@@ -7,10 +7,11 @@ import {
 } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
 
+import History from './routes/History';
 import Home from './routes/Home';
 import Item from './routes/Item';
 import Transaction from './routes/Transaction';
-import { ITEM_LINK, TRANSACTION_LINK, HISTORY_LINK } from './constants/link';
+import { HISTORY_LINK, ITEM_LINK, TRANSACTION_LINK } from './constants/link';
 import './App.css';
 
 class App extends React.Component {
@@ -27,13 +28,16 @@ class App extends React.Component {
         </Navbar>
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Home/>
+          </Route>
+          <Route path={HISTORY_LINK} exact>
+            <History/>
           </Route>
           <Route path={ITEM_LINK}>
-            <Item />
+            <Item/>
           </Route>
           <Route path={TRANSACTION_LINK}>
-            <Transaction />
+            <Transaction/>
           </Route>
           <Route>
             Not found!
