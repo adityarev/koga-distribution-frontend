@@ -12,10 +12,10 @@ export const items = [
 export const transactions = [
   {
     id: 1,
-    type: PURCHASE_ACTIVITY,
+    type: "Beli",
     partner: "Mandala",
-    paymentType: CASH_TYPE,
-    username: "rizkyh",
+    paymentType: "Tunai",
+    user: "Rizki Hervani",
     time: currentTime,
     items: [
       { name: "Susu", quantity: 50, price: 26000 }
@@ -23,10 +23,10 @@ export const transactions = [
   },
   {
     id: 2,
-    type: SELL_ACTIVITY,
+    type: "Jual",
     partner: "Trona",
-    paymentType: CREDIT_TYPE,
-    username: "rizkyh",
+    paymentType: "Kredit",
+    user: "Rizki Hervani",
     time: currentTime,
     items: [
       { name: "Susu", quantity: 25, price: 26000 },

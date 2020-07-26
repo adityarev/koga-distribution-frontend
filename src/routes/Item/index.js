@@ -7,9 +7,9 @@ import AddModal from './AddModal';
 import DetailModal from './DetailModal';
 import DeleteModal from './DeleteModal';
 
-const createItem = (id, name, quantity) => {
-  return { id, name, quantity };
-}
+import { createItem } from '../../creators/entity';
+import { items } from '../../dummies/entitylist';
+import { currentTime } from '../../dummies/time';
 
 class Item extends React.Component {
   constructor(props) {
@@ -17,21 +17,17 @@ class Item extends React.Component {
     this.state = {
       addModal: {
         show: false,
-        item: { ...createItem(null, null, null) }
+        item: { ...createItem(null, null, null, null, currentTime) }
       },
       detailModal: {
         show: false,
-        item: { ...createItem(null, null, null) }
+        item: { ...createItem(null, null, null, null, currentTime) }
       },
       deleteModal: {
         show: false,
-        item: { ...createItem(null, null, null) }
+        item: { ...createItem(null, null, null, null, currentTime) }
       },
-      items: [
-        createItem(1, "Susu", 10),
-        createItem(2, "Kopi", 34),
-        createItem(3, "Rendang", 0),
-      ]
+      items: items
     };
   }
 
@@ -48,7 +44,7 @@ class Item extends React.Component {
   handleModalClose = (modalName) => {
     this.setState({
       [modalName]: {
-        ...this.state.detailModal,
+        ...this.state[modalName],
         show: false
       }
     })
@@ -78,7 +74,7 @@ class Item extends React.Component {
                   <tr key={i}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
-                    <td>{item.quantity}</td>
+                    <td>{item.stockAmount}</td>
                     <td>
                       <Button
                         variant="info" size="sm"

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
+import { Button, Col, Modal, Row } from 'react-bootstrap';
 
 class DeleteModal extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class DeleteModal extends React.Component {
       <Modal
         show
         onHide={(e) => this.props.handleDeleteModalClose()}
-        size="sm"
+        size="md"
         aria-labelledby="delete-modal"
         centered
       >

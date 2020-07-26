@@ -41,7 +41,7 @@ class AddModal extends React.Component {
                 Jumlah
               </Form.Label>
               <Col sm={9}>
-                <InputNumber defaultValue={this.state.quantity} onChange={(e) => { console.log('changed') }}/>
+                <InputNumber defaultValue={this.state.stockAmount} onChange={(e) => { console.log('changed') }}/>
               </Col>
             </Form.Group>
           </Form>
