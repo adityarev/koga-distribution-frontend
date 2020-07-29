@@ -136,7 +136,7 @@ class SellModal extends React.Component {
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={3}>
-                Outlet
+                Partner
               </Form.Label>
               <Col sm={9}>
                 <Form.Control type="text"/>
