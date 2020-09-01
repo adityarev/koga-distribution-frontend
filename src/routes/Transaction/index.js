@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Card, Button } from 'react-bootstrap';
 
 import PurchaseModal from './PurchaseModal';
 import SellModal from './SellModal';

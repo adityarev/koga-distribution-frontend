@@ -8,28 +8,23 @@ import RollbackModal from './RollbackModal';
 
 import { transactions } from '../../dummies/entitylist';
 
-const createModalTransaction = (type, partner, time) => {
-  return { type, partner, time };
-};
-
 class History extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       detailModal: {
         show: false,
-        transaction: { ...createModalTransaction(null, null, null) }
+        transaction: null
       },
       rollbackModal: {
         show: false,
-        transaction: { ...createModalTransaction(null, null, null) }
+        transaction: null
       },
-      transactions: transactions
+      transactions: [...transactions]
     };
   }
 
-  handleModalOpen = (modalName, transactionId) => {
-    const transaction = this.state.transactions.find(transaction => transaction.id === transactionId) || createModalTransaction(null, null, null)
+  handleModalOpen = (modalName, transaction) => {
     this.setState({
       [modalName]: {
         show: true,
@@ -81,13 +76,13 @@ class History extends React.Component {
                     <td>
                       <Button
                         variant="info" size="sm"
-                        onClick={(e) => this.handleModalOpen("detailModal", transaction.id)}
+                        onClick={(e) => this.handleModalOpen("detailModal", transaction)}
                       >
                         Detail
                       </Button> {' '}
                       <Button
                         variant="danger" size="sm"
-                        onClick={(e) => this.handleModalOpen("rollbackModal", transaction.id)}
+                        onClick={(e) => this.handleModalOpen("rollbackModal", transaction)}
                       >
                         Batalkan
                       </Button>

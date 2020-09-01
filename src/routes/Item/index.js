@@ -17,22 +17,21 @@ class Item extends React.Component {
     this.state = {
       addModal: {
         show: false,
-        item: { ...createItem(null, null, null, null, currentTime) }
+        item: null
       },
       detailModal: {
         show: false,
-        item: { ...createItem(null, null, null, null, currentTime) }
+        item: null
       },
       deleteModal: {
         show: false,
-        item: { ...createItem(null, null, null, null, currentTime) }
+        item: null
       },
-      items: items
+      items: [...items]
     };
   }
 
-  handleModalOpen = (modalName, itemId) => {
-    const item = this.state.items.find(item => item.id === itemId) || createItem(null, null, null)
+  handleModalOpen = (modalName, item) => {
     this.setState({
       [modalName]: {
         show: true,
@@ -55,7 +54,7 @@ class Item extends React.Component {
       <>
         <Content>
           <Row className="mt-3">
-            <Button variant="success" onClick={(e) => this.handleModalOpen("addModal", -1)}>
+            <Button variant="success" onClick={(e) => this.handleModalOpen("addModal", createItem(null, null, null, null, currentTime))}>
               Tambah
             </Button>
           </Row>
@@ -78,13 +77,13 @@ class Item extends React.Component {
                     <td>
                       <Button
                         variant="info" size="sm"
-                        onClick={(e) => this.handleModalOpen("detailModal", item.id)}
+                        onClick={(e) => this.handleModalOpen("detailModal", item)}
                       >
                         Detail
                       </Button> {' '}
                       <Button
                         variant="danger" size="sm"
-                        onClick={(e) => this.handleModalOpen("deleteModal", item.id)}
+                        onClick={(e) => this.handleModalOpen("deleteModal", item)}
                       >
                         Hapus
                       </Button>

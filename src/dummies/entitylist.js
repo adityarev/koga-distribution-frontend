@@ -17,6 +17,7 @@ export const transactions = [
     paymentType: "Tunai",
     user: "Rizki Hervani",
     time: currentTime,
+    promo: "Diskon 10%",
     items: [
       { name: "Susu", quantity: 50, price: 26000 }
     ]
@@ -28,6 +29,7 @@ export const transactions = [
     paymentType: "Kredit",
     user: "Rizki Hervani",
     time: currentTime,
+    promo: "Bonus piring cantik",
     items: [
       { name: "Susu", quantity: 25, price: 26000 },
       { name: "Kerupuk Lado", quantity: 40, price: 15000 },
