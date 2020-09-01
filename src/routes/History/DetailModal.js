@@ -27,8 +27,21 @@ class DetailModal extends React.Component {
         <Modal.Body>
           <Form>
             <Form.Group as={Row}>
+              <Form.Label column sm={12}>
+                Daftar Barang
+              </Form.Label>
+              {this.state.items.map((item, i) => (
+                <Col key={i} className="mt-1" sm={12}>
+                  <Form.Control
+                    type="text" disabled
+                    defaultValue={`${item.quantity} x ${item.name} (${item.quantity * item.price})`}
+                  />
+                </Col>
+              ))}
+            </Form.Group>
+            <Form.Group as={Row}>
               <Form.Label column sm={3}>
-                Partner
+                {this.state.type === "Beli" ? "Penjual" : "Pembeli"}
               </Form.Label>
               <Col sm={9}>
                 <Form.Control type="text" defaultValue={this.state.partner} disabled/>
@@ -40,6 +53,30 @@ class DetailModal extends React.Component {
               </Form.Label>
               <Col sm={9}>
                 <Form.Control type="text" defaultValue={this.state.paymentType} disabled/>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={3}>
+                Promo
+              </Form.Label>
+              <Col sm={9}>
+                <Form.Control type="text" defaultValue={this.state.promo} disabled/>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={3}>
+                Admin
+              </Form.Label>
+              <Col sm={9}>
+                <Form.Control type="text" defaultValue={this.state.user} disabled/>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={3}>
+                Waktu
+              </Form.Label>
+              <Col sm={9}>
+                <Form.Control type="text" defaultValue={this.state.time} disabled/>
               </Col>
             </Form.Group>
           </Form>
