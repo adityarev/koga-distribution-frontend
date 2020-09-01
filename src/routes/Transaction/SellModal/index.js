@@ -55,15 +55,8 @@ class SellModal extends React.Component {
         ...this.state.form,
         items: this.state.form.items.map((item, i) => (
           i === index ? ({ ...item, ...newItem }) : item
-        ))
+        )).filter(item => (item.quantity > 0))
       }
-    }, () => {
-      this.setState({
-        form: {
-          ...this.state.form,
-          items: this.state.form.items.filter(item => (item.quantity > 0))
-        }
-      })
     });
   }
 
@@ -164,7 +157,7 @@ class SellModal extends React.Component {
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={3}>
-                Diskon
+                Promo
               </Form.Label>
               <Col sm={9}>
                 <Form.Control as="select">
